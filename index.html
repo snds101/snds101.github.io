@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>snds101 — Embedded Security Researcher</title>
+<style>
+  :root{
+    --bg:#0b0e14;
+    --bg-panel:#11151f;
+    --border:#232838;
+    --text:#e6e9f2;
+    --text-dim:#9aa3b8;
+    --accent:#5ee6c8;
+    --accent-2:#7c9bff;
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#f6f7fb;
+      --bg-panel:#ffffff;
+      --border:#e2e5ee;
+      --text:#171a24;
+      --text-dim:#5b6274;
+      --accent:#0f9d80;
+      --accent-2:#3355d0;
+    }
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+    line-height:1.55;
+  }
+  a{color:var(--accent-2);}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  header.hero{
+    padding:72px 0 48px;
+    border-bottom:1px solid var(--border);
+  }
+  .eyebrow{
+    color:var(--accent);
+    font-size:13px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    font-weight:600;
+    margin:0 0 12px;
+  }
+  h1{font-size:clamp(28px,4vw,42px);margin:0 0 12px;letter-spacing:-.01em;}
+  .lede{color:var(--text-dim);font-size:18px;max-width:640px;margin:0 0 20px;}
+  .links{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;}
+  .links a{
+    border:1px solid var(--border);
+    padding:8px 14px;
+    border-radius:8px;
+    text-decoration:none;
+    color:var(--text);
+  }
+  .links a:hover{border-color:var(--accent-2);}
+
+  section{padding:56px 0;border-bottom:1px solid var(--border);}
+  section:last-of-type{border-bottom:none;}
+  h2{font-size:24px;margin:0 0 8px;}
+  .section-sub{color:var(--text-dim);margin:0 0 32px;font-size:15px;}
+
+  /* Presentation / slides */
+  .deck{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .slide{
+    display:none;
+    padding:40px 36px;
+    min-height:260px;
+  }
+  .slide.active{display:block;}
+  .slide .tag{
+    color:var(--accent);
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    font-weight:700;
+    margin:0 0 10px;
+  }
+  .slide h3{font-size:22px;margin:0 0 16px;}
+  .slide ul{margin:0;padding-left:20px;color:var(--text-dim);}
+  .slide li{margin-bottom:8px;}
+  .slide p{color:var(--text-dim);margin:0;}
+  .deck-nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 20px;
+    border-top:1px solid var(--border);
+    background:transparent;
+  }
+  .deck-nav button{
+    background:var(--bg);
+    color:var(--text);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:8px 16px;
+    font-size:14px;
+    cursor:pointer;
+  }
+  .deck-nav button:hover{border-color:var(--accent-2);}
+  .deck-nav button:disabled{opacity:.35;cursor:default;}
+  .dots{display:flex;gap:6px;}
+  .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--border);
+    cursor:pointer;
+    border:none;
+    padding:0;
+  }
+  .dot.active{background:var(--accent);}
+
+  /* Skills */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:16px;
+  }
+  .skill-card{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px;
+  }
+  .skill-card h3{
+    font-size:15px;
+    margin:0 0 10px;
+    color:var(--accent);
+  }
+  .skill-card ul{
+    margin:0;
+    padding-left:18px;
+    color:var(--text-dim);
+    font-size:14px;
+  }
+  .skill-card li{margin-bottom:6px;}
+
+  footer{
+    padding:32px 0 60px;
+    color:var(--text-dim);
+    font-size:14px;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Embedded &amp; Automotive Security</p>
+    <h1>snds101</h1>
+    <p class="lede">
+      Security researcher focused on embedded and automotive systems — from silicon-level
+      debug interfaces through firmware, diagnostic protocols, and vehicle bus attack surface.
+    </p>
+    <div class="links">
+      <a href="https://github.com/snds101" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:sondos3096@gmail.com">Email</a>
+    </div>
+  </div>
+</header>
+
+<section id="presentation">
+  <div class="wrap">
+    <h2>Embedded &amp; Automotive Pentesting</h2>
+    <p class="section-sub">A walkthrough of the attack surface, from datasheet to CAN bus.</p>
+
+    <div class="deck">
+      <div class="slide active" data-slide="0">
+        <p class="tag">01 · Overview</p>
+        <h3>Embedded &amp; Automotive Penetration Testing</h3>
+        <p>Mapping attack surface from silicon to the vehicle network — ECU/MCU hardware,
+           firmware, and the diagnostic and communication protocols that connect them.</p>
+      </div>
+
+      <div class="slide" data-slide="1">
+        <p class="tag">02 · Debug Interfaces</p>
+        <h3>JTAG / SWD / CoreSight</h3>
+        <ul>
+          <li>Datasheet and TRM review to locate debug pins and access ports</li>
+          <li>Pinout identification and interface enumeration on unknown boards</li>
+          <li>Debug authentication, lock states, and secure-debug bypass feasibility</li>
+          <li>Trace/ETM capability assessment for runtime analysis</li>
+        </ul>
+      </div>
+
+      <div class="slide" data-slide="2">
+        <p class="tag">03 · Boot &amp; Flash Security</p>
+        <h3>Secure Boot, Flash Protection &amp; Firmware Extraction</h3>
+        <ul>
+          <li>Boot chain validation and trust anchor review</li>
+          <li>Readout protection (RDP) level assessment</li>
+          <li>Firmware extraction and static/dynamic reverse engineering</li>
+          <li>Identifying downgrade and bypass paths in the boot flow</li>
+        </ul>
+      </div>
+
+      <div class="slide" data-slide="3">
+        <p class="tag">04 · Vehicle Networks</p>
+        <h3>CAN / CAN-FD / LIN &amp; UDS (ISO 14229)</h3>
+        <ul>
+          <li>Bus sniffing, DBC reverse engineering, and message injection</li>
+          <li>UDS diagnostic service enumeration (read/write memory, routines)</li>
+          <li>Security access seed-key algorithm analysis</li>
+          <li>Gateway and ECU segmentation testing across bus domains</li>
+        </ul>
+      </div>
+
+      <div class="slide" data-slide="4">
+        <p class="tag">05 · Crypto &amp; HSM</p>
+        <h3>HSM / CSEc / Crypto Engine Review</h3>
+        <ul>
+          <li>Key storage and provisioning workflow assessment</li>
+          <li>Crypto engine API surface and misuse analysis</li>
+          <li>Side-channel exposure of key material</li>
+        </ul>
+      </div>
+
+      <div class="slide" data-slide="5">
+        <p class="tag">06 · Fault Injection</p>
+        <h3>Fault Injection &amp; Side-Channel Feasibility</h3>
+        <ul>
+          <li>Voltage and clock glitching for boot/auth bypass</li>
+          <li>EM and power analysis feasibility scoping</li>
+          <li>Glitch window identification against target timing</li>
+        </ul>
+      </div>
+
+      <div class="slide" data-slide="6">
+        <p class="tag">07 · Methodology</p>
+        <h3>How an Engagement Runs</h3>
+        <ul>
+          <li>Datasheet / TRM review → interface &amp; attack-surface mapping</li>
+          <li>Hardware access → firmware extraction</li>
+          <li>Static + dynamic analysis of firmware and protocol stack</li>
+          <li>Findings, exploitability writeups, and remediation guidance</li>
+        </ul>
+      </div>
+
+      <div class="deck-nav">
+        <button id="prevBtn" onclick="changeSlide(-1)">← Prev</button>
+        <div class="dots" id="dots"></div>
+        <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="section-sub">Core areas of embedded and automotive security work.</p>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Debug &amp; Hardware</h3>
+        <ul>
+          <li>JTAG / SWD / CoreSight</li>
+          <li>UART, SPI, I2C bus analysis</li>
+          <li>HydraBus / HydraFW tooling</li>
+          <li>Pinout &amp; interface mapping from datasheets</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Automotive Protocols</h3>
+        <ul>
+          <li>CAN / CAN-FD / LIN</li>
+          <li>UDS diagnostics (ISO 14229)</li>
+          <li>Security access / seed-key analysis</li>
+          <li>Gateway &amp; bus segmentation testing</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Firmware &amp; Boot Security</h3>
+        <ul>
+          <li>Secure boot chain review</li>
+          <li>Flash readout protection assessment</li>
+          <li>Firmware extraction &amp; reverse engineering</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Crypto &amp; HSM</h3>
+        <ul>
+          <li>HSM / CSEc review</li>
+          <li>Key management assessment</li>
+          <li>Side-channel exposure analysis</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Fault Injection &amp; Side Channel</h3>
+        <ul>
+          <li>Voltage / clock glitching</li>
+          <li>Power &amp; EM analysis feasibility</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Methodology &amp; Tooling</h3>
+        <ul>
+          <li>Datasheet / TRM-driven attack surface mapping</li>
+          <li>Python tooling &amp; scripting</li>
+          <li>Reporting &amp; remediation guidance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© <span id="year"></span> snds101 — <a href="mailto:sondos3096@gmail.com">sondos3096@gmail.com</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const slides = document.querySelectorAll('.slide');
+  const dotsWrap = document.getElementById('dots');
+  let current = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.onclick = () => goToSlide(i);
+    dotsWrap.appendChild(dot);
+  });
+
+  function render(){
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    document.getElementById('prevBtn').disabled = current === 0;
+    document.getElementById('nextBtn').disabled = current === slides.length - 1;
+  }
+
+  function changeSlide(delta){
+    current = Math.min(Math.max(current + delta, 0), slides.length - 1);
+    render();
+  }
+
+  function goToSlide(i){
+    current = i;
+    render();
+  }
+
+  render();
+</script>
+
+</body>
+</html>
