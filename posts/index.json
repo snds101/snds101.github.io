@@ -3,12 +3,14 @@
     "slug": "hello-world",
     "title": "Hello World",
     "date": "2026-07-13",
-    "excerpt": "Kicking off this blog with write-ups on embedded and automotive security work."
+    "excerpt": "Kicking off this blog with write-ups on embedded and automotive security work.",
+    "published": true
   },
   {
     "slug": "embedded-pentest-methodology",
     "title": "Embedded System Pentest Methodology",
     "date": "2026-07-13",
-    "excerpt": "How PTES, OSSTMM, OWASP FSTM, and MITRE ATT&CK/EMB3D map onto real embedded and automotive engagements, from debug interface mapping to UDS security access testing."
+    "excerpt": "How PTES, OSSTMM, OWASP FSTM, and MITRE ATT&CK/EMB3D map onto real embedded and automotive engagements, from debug interface mapping to UDS security access testing.",
+    "published": true
   }
 ]
