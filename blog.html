@@ -106,12 +106,13 @@
     .then(r => r.json())
     .then(posts => {
       const list = document.getElementById('postList');
-      if (!posts.length) {
+      const visible = posts.filter(p => p.published !== false);
+      if (!visible.length) {
         list.innerHTML = '<p class="empty-state">No posts yet — check back soon.</p>';
         return;
       }
-      posts.sort((a, b) => b.date.localeCompare(a.date));
-      list.innerHTML = posts.map(p => `
+      visible.sort((a, b) => b.date.localeCompare(a.date));
+      list.innerHTML = visible.map(p => `
         <a class="post-card" href="post.html?slug=${encodeURIComponent(p.slug)}">
           <p class="post-date">${formatDate(p.date)}</p>
           <h2>${p.title}</h2>
