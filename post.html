@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title id="pageTitle">Post — Sondos MANCHOUL</title>
+<style>
+  :root{
+    --bg:#0b0e14;
+    --bg-panel:#11151f;
+    --border:#232838;
+    --text:#e6e9f2;
+    --text-dim:#9aa3b8;
+    --accent:#5ee6c8;
+    --accent-2:#7c9bff;
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#f6f7fb;
+      --bg-panel:#ffffff;
+      --border:#e2e5ee;
+      --text:#171a24;
+      --text-dim:#5b6274;
+      --accent:#0f9d80;
+      --accent-2:#3355d0;
+    }
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+    line-height:1.6;
+  }
+  a{color:var(--accent-2);}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+
+  header.subheader{
+    border-bottom:1px solid var(--border);
+    padding:22px 0;
+  }
+  .subheader-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .brand{font-weight:700;text-decoration:none;color:var(--text);font-size:15px;}
+  .subnav a{margin-left:20px;color:var(--text-dim);text-decoration:none;font-size:14px;}
+  .subnav a:hover{color:var(--accent-2);}
+  .subnav a.active{color:var(--text);}
+
+  main{padding:56px 0 80px;}
+  .post-date{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin:0 0 12px;}
+  article h1{font-size:clamp(26px,4vw,36px);margin:0 0 28px;letter-spacing:-.01em;}
+  article h2{font-size:22px;margin:32px 0 12px;}
+  article h3{font-size:18px;margin:24px 0 10px;}
+  article p{color:var(--text-dim);margin:0 0 16px;font-size:16px;}
+  article ul{color:var(--text-dim);padding-left:22px;margin:0 0 16px;}
+  article li{margin-bottom:6px;}
+  article code{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:4px;
+    padding:2px 6px;
+    font-size:.9em;
+  }
+  article pre{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:18px;
+    overflow-x:auto;
+  }
+  article pre code{border:none;padding:0;background:none;}
+
+  .back-link{display:inline-block;margin-top:40px;color:var(--text-dim);text-decoration:none;font-size:14px;}
+  .back-link:hover{color:var(--accent-2);}
+
+  footer{padding:32px 0 60px;color:var(--text-dim);font-size:14px;border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+
+<header class="subheader">
+  <div class="wrap subheader-inner">
+    <a class="brand" href="index.html">Sondos MANCHOUL</a>
+    <nav class="subnav">
+      <a href="index.html">Home</a>
+      <a href="blog.html" class="active">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <article>
+      <p class="post-date" id="postDate"></p>
+      <h1 id="postTitle">Loading…</h1>
+      <div id="postContent"></div>
+    </article>
+    <a class="back-link" href="blog.html">← Back to blog</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© <span id="year"></span> Sondos MANCHOUL — <a href="mailto:sondos.manchoul@gmail.com">sondos.manchoul@gmail.com</a></p>
+  </div>
+</footer>
+
+<script src="assets/blog.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const slug = new URLSearchParams(window.location.search).get('slug');
+  const contentEl = document.getElementById('postContent');
+  const titleEl = document.getElementById('postTitle');
+  const dateEl = document.getElementById('postDate');
+
+  if (!slug) {
+    titleEl.textContent = 'Post not found';
+    contentEl.innerHTML = '<p>No post specified.</p>';
+  } else {
+    fetch('posts/index.json')
+      .then(r => r.json())
+      .then(posts => {
+        const meta = posts.find(p => p.slug === slug);
+        if (!meta) {
+          titleEl.textContent = 'Post not found';
+          contentEl.innerHTML = '<p>This post does not exist.</p>';
+          return;
+        }
+        titleEl.textContent = meta.title;
+        document.getElementById('pageTitle').textContent = meta.title + ' — Sondos MANCHOUL';
+        dateEl.textContent = formatDate(meta.date);
+        return fetch(`posts/${slug}.md`)
+          .then(r => r.text())
+          .then(md => { contentEl.innerHTML = renderMarkdown(md); });
+      })
+      .catch(() => {
+        titleEl.textContent = 'Error';
+        contentEl.innerHTML = '<p>Could not load this post.</p>';
+      });
+  }
+</script>
+
+</body>
+</html>
