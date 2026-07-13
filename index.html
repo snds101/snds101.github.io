@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>snds101 — Embedded Security Researcher</title>
+<title>snds101 — Automotive Cybersecurity Engineer &amp; Pentester</title>
 <style>
   :root{
     --bg:#0b0e14;
@@ -48,7 +48,13 @@
     font-weight:600;
     margin:0 0 12px;
   }
-  h1{font-size:clamp(28px,4vw,42px);margin:0 0 12px;letter-spacing:-.01em;}
+  h1{font-size:clamp(28px,4vw,42px);margin:0 0 6px;letter-spacing:-.01em;}
+  .role{
+    color:var(--text-dim);
+    font-size:16px;
+    margin:0 0 18px;
+    font-weight:600;
+  }
   .lede{color:var(--text-dim);font-size:18px;max-width:640px;margin:0 0 20px;}
   .links{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;}
   .links a{
@@ -64,6 +70,47 @@
   section:last-of-type{border-bottom:none;}
   h2{font-size:24px;margin:0 0 8px;}
   .section-sub{color:var(--text-dim);margin:0 0 32px;font-size:15px;}
+
+  /* Experience timeline */
+  .timeline{display:flex;flex-direction:column;gap:16px;}
+  .exp-card{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:24px;
+  }
+  .exp-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:6px 16px;
+    margin-bottom:6px;
+  }
+  .exp-head h3{margin:0;font-size:17px;}
+  .exp-head .company{color:var(--accent);font-weight:600;}
+  .exp-head .dates{color:var(--text-dim);font-size:13px;white-space:nowrap;}
+  .exp-card ul{margin:10px 0 0;padding-left:20px;color:var(--text-dim);font-size:14px;}
+  .exp-card li{margin-bottom:6px;}
+
+  /* Education */
+  .edu-list{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:12px;
+    overflow:hidden;
+  }
+  .edu-item{
+    padding:16px 24px;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .edu-item:last-child{border-bottom:none;}
+  .edu-item .degree{font-size:14px;}
+  .edu-item .years{color:var(--text-dim);font-size:13px;white-space:nowrap;}
 
   /* Presentation / slides */
   .deck{
@@ -155,11 +202,15 @@
 
 <header class="hero">
   <div class="wrap">
-    <p class="eyebrow">Embedded &amp; Automotive Security</p>
+    <p class="eyebrow">Automotive Cybersecurity Engineer &amp; Penetration Tester</p>
     <h1>snds101</h1>
+    <p class="role">Embedded System Pentester @ VALEO</p>
     <p class="lede">
-      Security researcher focused on embedded and automotive systems — from silicon-level
-      debug interfaces through firmware, diagnostic protocols, and vehicle bus attack surface.
+      Results-driven Automotive Cybersecurity Engineer and Penetration Tester with hands-on
+      experience auditing embedded systems and vehicle networks. Proven expertise in firmware
+      analysis, hardware exploitation (UART, JTAG, SWD), and automotive protocols (CAN, UDS,
+      Automotive Ethernet). Adept at translating complex vulnerabilities into actionable
+      mitigation strategies for engineering teams.
     </p>
     <div class="links">
       <a href="https://github.com/snds101" target="_blank" rel="noopener">GitHub</a>
@@ -167,6 +218,80 @@
     </div>
   </div>
 </header>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <p class="section-sub">Work history and projects.</p>
+
+    <div class="timeline">
+      <div class="exp-card">
+        <div class="exp-head">
+          <h3>Embedded System Pentester</h3>
+          <span class="dates">Mar 2024 — Present</span>
+        </div>
+        <div class="company">VALEO</div>
+        <ul>
+          <li>Led white-box security audits and firmware analysis on ADAS ECUs, identifying critical vulnerabilities in encryption and access control</li>
+          <li>Executed advanced hardware/network exploitation (Automotive Ethernet, CAN, LIN, UDS) to improve ECU resilience against injection attacks</li>
+          <li>Exploited hardware debug interfaces (UART, JTAG, SWD) to extract firmware and bypass security mechanisms</li>
+          <li>Authored detailed penetration test reports with actionable Proof of Concepts (PoCs) for engineering teams</li>
+          <li>Collaborated with clients and R&amp;D to validate security patches and enhance product security posture</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-head">
+          <h3>Offensive Security R&amp;D Engineer</h3>
+          <span class="dates">Mar 2022 — Feb 2024</span>
+        </div>
+        <div class="company">SECKIOT</div>
+        <ul>
+          <li>Engineered and automated attack scenarios (APTs) targeting critical industrial infrastructure</li>
+          <li>Scripted 20+ network attacks using Python and Bash for full kill-chain testing in hybrid lab environments</li>
+          <li>Automated workflows to validate the performance of internal Intrusion Detection Systems (IDS)</li>
+          <li>Technical lead for offensive demonstrations, showcasing live capabilities to stakeholders</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-head">
+          <h3>Cybersecurity R&amp;D Intern</h3>
+          <span class="dates">Aug 2020 — Feb 2022</span>
+        </div>
+        <div class="company">SECKIOT</div>
+        <ul>
+          <li>Architected a simulated factory network using Docker and Python to replicate industrial traffic</li>
+          <li>Designed industrial attack scenarios mapped to the MITRE ATT&amp;CK framework</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-head">
+          <h3>IoT Intern</h3>
+          <span class="dates">Sep 2021 — Feb 2022</span>
+        </div>
+        <div class="company">STEDIS, TOTAL</div>
+        <ul>
+          <li>Deployed and configured a connected object management tool leveraging Microsoft Azure</li>
+          <li>Automated data acquisition pipelines, successfully decoding and storing IoT telemetry using JavaScript and Azure Functions</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-head">
+          <h3>Academic Projects</h3>
+          <span class="dates">Sep 2020 — Jun 2021</span>
+        </div>
+        <div class="company">Eurecom</div>
+        <ul>
+          <li>Network Security: co-developed a programmable proxy to mitigate botnet-driven web server attacks</li>
+          <li>Drone Reverse-Engineering: reverse-engineered radio signals and executed RF-targeted attacks on commercial drones</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="presentation">
   <div class="wrap">
@@ -257,57 +382,84 @@
 <section id="skills">
   <div class="wrap">
     <h2>Skills</h2>
-    <p class="section-sub">Core areas of embedded and automotive security work.</p>
+    <p class="section-sub">Technical skills and tooling.</p>
 
     <div class="skills-grid">
       <div class="skill-card">
-        <h3>Debug &amp; Hardware</h3>
+        <h3>Protocols</h3>
         <ul>
-          <li>JTAG / SWD / CoreSight</li>
-          <li>UART, SPI, I2C bus analysis</li>
-          <li>HydraBus / HydraFW tooling</li>
-          <li>Pinout &amp; interface mapping from datasheets</li>
+          <li>CAN, SPI, I2C, UART, LIN</li>
+          <li>Automotive Ethernet</li>
+          <li>UDS</li>
         </ul>
       </div>
       <div class="skill-card">
-        <h3>Automotive Protocols</h3>
+        <h3>Hardware</h3>
         <ul>
-          <li>CAN / CAN-FD / LIN</li>
-          <li>UDS diagnostics (ISO 14229)</li>
-          <li>Security access / seed-key analysis</li>
-          <li>Gateway &amp; bus segmentation testing</li>
+          <li>FTDI</li>
+          <li>HydraBus</li>
+          <li>Saleae Logic Analyzer</li>
+          <li>J-Link</li>
+          <li>Dediprog</li>
+          <li>PCAN</li>
         </ul>
       </div>
       <div class="skill-card">
-        <h3>Firmware &amp; Boot Security</h3>
+        <h3>Offensive Tools</h3>
         <ul>
-          <li>Secure boot chain review</li>
-          <li>Flash readout protection assessment</li>
-          <li>Firmware extraction &amp; reverse engineering</li>
+          <li>Wireshark</li>
+          <li>Metasploit</li>
+          <li>Ghidra</li>
+          <li>GDB</li>
+          <li>Radare2</li>
         </ul>
       </div>
       <div class="skill-card">
-        <h3>Crypto &amp; HSM</h3>
+        <h3>Automotive Software</h3>
         <ul>
-          <li>HSM / CSEc review</li>
-          <li>Key management assessment</li>
-          <li>Side-channel exposure analysis</li>
+          <li>Vector CANoe</li>
+          <li>CANalyzer</li>
         </ul>
       </div>
       <div class="skill-card">
-        <h3>Fault Injection &amp; Side Channel</h3>
+        <h3>Dev &amp; OS</h3>
         <ul>
-          <li>Voltage / clock glitching</li>
-          <li>Power &amp; EM analysis feasibility</li>
+          <li>Python, Bash</li>
+          <li>Linux (Ubuntu), macOS, Windows</li>
         </ul>
       </div>
       <div class="skill-card">
-        <h3>Methodology &amp; Tooling</h3>
+        <h3>Languages</h3>
         <ul>
-          <li>Datasheet / TRM-driven attack surface mapping</li>
-          <li>Python tooling &amp; scripting</li>
-          <li>Reporting &amp; remediation guidance</li>
+          <li>French (Native)</li>
+          <li>Arabic (Native)</li>
+          <li>English (TOEFL 85)</li>
+          <li>German (Basics)</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <div class="edu-list">
+      <div class="edu-item">
+        <span class="degree">Post-Master Degree in Cybersecurity — Eurecom, Sophia Antipolis</span>
+        <span class="years">2020 – 2022</span>
+      </div>
+      <div class="edu-item">
+        <span class="degree">Generalist Engineer Master Degree — IMT Mines Albi, Albi</span>
+        <span class="years">2018 – 2020</span>
+      </div>
+      <div class="edu-item">
+        <span class="degree">CPGE PCSI/PSI — Lycée du Parc, Lyon</span>
+        <span class="years">2015 – 2018</span>
+      </div>
+      <div class="edu-item">
+        <span class="degree">Top 40 National Ranking, Baccalaureate (Full Merit Scholarship)</span>
+        <span class="years">Jul 2015</span>
       </div>
     </div>
   </div>
