@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blog — Sondos MANCHOUL</title>
+<style>
+  :root{
+    --bg:#0b0e14;
+    --bg-panel:#11151f;
+    --border:#232838;
+    --text:#e6e9f2;
+    --text-dim:#9aa3b8;
+    --accent:#5ee6c8;
+    --accent-2:#7c9bff;
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#f6f7fb;
+      --bg-panel:#ffffff;
+      --border:#e2e5ee;
+      --text:#171a24;
+      --text-dim:#5b6274;
+      --accent:#0f9d80;
+      --accent-2:#3355d0;
+    }
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+    line-height:1.55;
+  }
+  a{color:var(--accent-2);}
+  .wrap{max-width:800px;margin:0 auto;padding:0 24px;}
+
+  header.subheader{
+    border-bottom:1px solid var(--border);
+    padding:22px 0;
+  }
+  .subheader-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .brand{font-weight:700;text-decoration:none;color:var(--text);font-size:15px;}
+  .subnav a{margin-left:20px;color:var(--text-dim);text-decoration:none;font-size:14px;}
+  .subnav a:hover{color:var(--accent-2);}
+  .subnav a.active{color:var(--text);}
+
+  main{padding:56px 0 80px;}
+  h1{font-size:clamp(26px,4vw,36px);margin:0 0 8px;letter-spacing:-.01em;}
+  .section-sub{color:var(--text-dim);margin:0 0 36px;font-size:15px;}
+
+  .post-list{display:flex;flex-direction:column;gap:16px;}
+  .post-card{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:24px;
+    text-decoration:none;
+    color:var(--text);
+    display:block;
+  }
+  .post-card:hover{border-color:var(--accent-2);}
+  .post-card .post-date{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin:0 0 8px;}
+  .post-card h2{margin:0 0 8px;font-size:19px;}
+  .post-card p{margin:0;color:var(--text-dim);font-size:14px;}
+
+  .empty-state{color:var(--text-dim);font-size:14px;}
+
+  footer{padding:32px 0 60px;color:var(--text-dim);font-size:14px;border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+
+<header class="subheader">
+  <div class="wrap subheader-inner">
+    <a class="brand" href="index.html">Sondos MANCHOUL</a>
+    <nav class="subnav">
+      <a href="index.html">Home</a>
+      <a href="blog.html" class="active">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>Blog</h1>
+    <p class="section-sub">Notes and write-ups on embedded &amp; automotive security.</p>
+    <div class="post-list" id="postList">
+      <p class="empty-state">Loading posts…</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© <span id="year"></span> Sondos MANCHOUL — <a href="mailto:sondos.manchoul@gmail.com">sondos.manchoul@gmail.com</a></p>
+  </div>
+</footer>
+
+<script src="assets/blog.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  fetch('posts/index.json')
+    .then(r => r.json())
+    .then(posts => {
+      const list = document.getElementById('postList');
+      if (!posts.length) {
+        list.innerHTML = '<p class="empty-state">No posts yet — check back soon.</p>';
+        return;
+      }
+      posts.sort((a, b) => b.date.localeCompare(a.date));
+      list.innerHTML = posts.map(p => `
+        <a class="post-card" href="post.html?slug=${encodeURIComponent(p.slug)}">
+          <p class="post-date">${formatDate(p.date)}</p>
+          <h2>${p.title}</h2>
+          <p>${p.excerpt || ''}</p>
+        </a>
+      `).join('');
+    })
+    .catch(() => {
+      document.getElementById('postList').innerHTML = '<p class="empty-state">Could not load posts.</p>';
+    });
+</script>
+
+</body>
+</html>
