@@ -122,7 +122,7 @@
       .then(r => r.json())
       .then(posts => {
         const meta = posts.find(p => p.slug === slug);
-        if (!meta) {
+        if (!meta || meta.published === false) {
           titleEl.textContent = 'Post not found';
           contentEl.innerHTML = '<p>This post does not exist.</p>';
           return;
