@@ -40,6 +40,22 @@
     padding:72px 0 48px;
     border-bottom:1px solid var(--border);
   }
+  .hero-inner{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+  .avatar{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid var(--border);
+    flex-shrink:0;
+    background:var(--bg-panel);
+  }
+  .hero-text{min-width:0;flex:1;}
   .eyebrow{
     color:var(--accent);
     font-size:13px;
@@ -202,20 +218,25 @@
 
 <header class="hero">
   <div class="wrap">
-    <p class="eyebrow">Cybersecurity Engineer and Embedded Pentester</p>
-    <h1>Sondos MANCHOUL</h1>
-    <p class="role">Embedded System Pentester @ VALEO</p>
-    <p class="lede">
-      Results-driven Automotive Cybersecurity Engineer and Penetration Tester with hands-on
-      experience auditing embedded systems and vehicle networks. Proven expertise in firmware
-      analysis, hardware exploitation (UART, JTAG, SWD), and automotive protocols (CAN, UDS,
-      Automotive Ethernet). Adept at translating complex vulnerabilities into actionable
-      mitigation strategies for engineering teams.
-    </p>
-    <div class="links">
-      <a href="blog.html">Blog</a>
-      <a href="https://github.com/snds101" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://fr.linkedin.com/in/sondos-manchoul" target="_blank" rel="noopener">LinkedIn</a>
+    <div class="hero-inner">
+      <img class="avatar" src="assets/img/profile.jpg" alt="Sondos Manchoul" onerror="this.style.display='none'" />
+      <div class="hero-text">
+        <p class="eyebrow">Cybersecurity Engineer and Embedded Pentester</p>
+        <h1>Sondos MANCHOUL</h1>
+        <p class="role">Embedded System Pentester @ VALEO</p>
+        <p class="lede">
+          Results-driven Automotive Cybersecurity Engineer and Penetration Tester with hands-on
+          experience auditing embedded systems and vehicle networks. Proven expertise in firmware
+          analysis, hardware exploitation (UART, JTAG, SWD), and automotive protocols (CAN, UDS,
+          Automotive Ethernet). Adept at translating complex vulnerabilities into actionable
+          mitigation strategies for engineering teams.
+        </p>
+        <div class="links">
+          <a href="blog.html">Blog</a>
+          <a href="https://github.com/snds101" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://fr.linkedin.com/in/sondos-manchoul" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
     </div>
   </div>
 </header>
