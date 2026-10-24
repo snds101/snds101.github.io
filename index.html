@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Sondos MANCHOUL — Cybersecurity Engineer &amp; Embedded Pentester</title>
+<title>Sondos MANCHOUL — Embedded Pentester &amp; Offensive Security Engineer</title>
 <style>
   :root{
     --bg:#0b0e14;
@@ -221,15 +221,18 @@
     <div class="hero-inner">
       <img class="avatar" src="assets/img/IMG_8505.jpg" alt="Sondos Manchoul" onerror="this.style.display='none'" />
       <div class="hero-text">
-        <p class="eyebrow">Cybersecurity Engineer and Embedded Pentester</p>
+        <p class="eyebrow">Embedded Pentester · Offensive Security Engineer · ICS/OT Adversary Emulation</p>
         <h1>Sondos MANCHOUL</h1>
-        <p class="role">Embedded System Pentester @ VALEO</p>
+        <p class="role">Embedded Systems Penetration Tester @ Valeo · Paris, France</p>
         <p class="lede">
-          Results-driven Automotive Cybersecurity Engineer and Penetration Tester with hands-on
-          experience auditing embedded systems and vehicle networks. Proven expertise in firmware
-          analysis, hardware exploitation (UART, JTAG, SWD), and automotive protocols (CAN, UDS,
-          Automotive Ethernet). Adept at translating complex vulnerabilities into actionable
-          mitigation strategies for engineering teams.
+          Offensive security engineer with 4.5 years of hands-on experience attacking automotive,
+          embedded and industrial systems. At Valeo, I lead and co-deliver white-box penetration tests
+          of ECUs (front cameras, radar, parking systems, lighting and phone-as-a-key), combining
+          firmware analysis, C/C++ code review, hardware debug-interface attacks, UDS SecurityAccess
+          testing and fuzzing. Previously at Seckiot, I designed MITRE ATT&amp;CK-mapped APT scenarios
+          in a hybrid IT/OT lab, from Active Directory recon to pivoting into OT networks, to validate
+          an industrial IDS. I own engagements end to end, from scoping to reviewed reports and
+          remediation follow-up.
         </p>
         <div class="links">
           <a href="blog.html">Blog</a>
@@ -244,21 +247,23 @@
 <section id="experience">
   <div class="wrap">
     <h2>Experience</h2>
-    <p class="section-sub">Work history and projects.</p>
+    <p class="section-sub">Work history, projects and training.</p>
 
     <div class="timeline">
       <div class="exp-card">
         <div class="exp-head">
-          <h3>Embedded System Pentester</h3>
+          <h3>Embedded Systems Penetration Tester</h3>
           <span class="dates">Mar 2024 — Present</span>
         </div>
-        <div class="company">VALEO</div>
+        <div class="company">VALEO · France</div>
         <ul>
-          <li>Led white-box security audits and firmware analysis on ADAS ECUs, identifying critical vulnerabilities in encryption and access control</li>
-          <li>Executed advanced hardware/network exploitation (Automotive Ethernet, CAN, LIN, UDS) to improve ECU resilience against injection attacks</li>
-          <li>Exploited hardware debug interfaces (UART, JTAG, SWD) to extract firmware and bypass security mechanisms</li>
-          <li>Authored detailed penetration test reports with actionable Proof of Concepts (PoCs) for engineering teams</li>
-          <li>Collaborated with clients and R&amp;D to validate security patches and enhance product security posture</li>
+          <li>Led white-box penetration tests end to end and co-delivered others with a second pentester on automotive ECUs: front cameras, radar, parking systems, lighting ECUs and a phone-as-a-key vehicle access system</li>
+          <li>Ran the full engagement cycle: gathered technical inputs from project teams, built and smoke-tested the test bench, executed the pentest, delivered peer-reviewed reports and answered client questions on findings and remediation</li>
+          <li>Integrated AI tools into the pentest workflow, from test automation through to report writing</li>
+          <li>Combined firmware analysis with C/C++ source code review to identify critical vulnerabilities in cryptographic implementations and access-control mechanisms</li>
+          <li>Attacked diagnostic and in-vehicle network interfaces, testing UDS SecurityAccess (seed/key) and diagnostic sessions, and message injection over CAN, LIN and Automotive Ethernet</li>
+          <li>Fuzzed lighting ECU interfaces to uncover robustness and input-validation weaknesses</li>
+          <li>Extracted firmware and bypassed on-device protections through UART, JTAG and SWD debug interfaces</li>
         </ul>
       </div>
 
@@ -267,48 +272,61 @@
           <h3>Offensive Security R&amp;D Engineer</h3>
           <span class="dates">Mar 2022 — Feb 2024</span>
         </div>
-        <div class="company">SECKIOT</div>
+        <div class="company">SECKIOT · France</div>
         <ul>
-          <li>Engineered and automated attack scenarios (APTs) targeting critical industrial infrastructure</li>
-          <li>Scripted 20+ network attacks using Python and Bash for full kill-chain testing in hybrid lab environments</li>
-          <li>Automated workflows to validate the performance of internal Intrusion Detection Systems (IDS)</li>
-          <li>Technical lead for offensive demonstrations, showcasing live capabilities to stakeholders</li>
+          <li>Designed APT-style attack scenarios and automated their execution with MITRE Caldera against critical industrial infrastructure in a hybrid IT/OT lab running Modbus, S7comm and OPC UA, covering the full kill chain from IT foothold to OT impact</li>
+          <li>Simulated Active Directory attack paths in the IT segment and performed lateral movement from the compromised IT network into the OT network</li>
+          <li>Developed 20+ network and industrial-protocol attacks in Python and Bash, mapped to MITRE ATT&amp;CK</li>
+          <li>Built automated workflows replaying these attacks to validate the detection performance of Seckiot's industrial intrusion detection system (IDS)</li>
+          <li>Technical lead for live offensive demonstrations presented to stakeholders</li>
         </ul>
       </div>
 
       <div class="exp-card">
         <div class="exp-head">
           <h3>Cybersecurity R&amp;D Intern</h3>
-          <span class="dates">Aug 2020 — Feb 2022</span>
+          <span class="dates">Sep 2021 — Feb 2022</span>
         </div>
         <div class="company">SECKIOT</div>
         <ul>
-          <li>Architected a simulated factory network using Docker and Python to replicate industrial traffic</li>
-          <li>Designed industrial attack scenarios mapped to the MITRE ATT&amp;CK framework</li>
+          <li>Built a simulated factory network with Docker and Python generating realistic industrial traffic for attack and detection testing</li>
+          <li>Designed industrial attack scenarios mapped to MITRE ATT&amp;CK</li>
         </ul>
       </div>
 
       <div class="exp-card">
         <div class="exp-head">
-          <h3>IoT Intern</h3>
-          <span class="dates">Sep 2021 — Feb 2022</span>
+          <h3>IoT Engineering Intern</h3>
+          <span class="dates">Jul 2020 — Aug 2020</span>
         </div>
-        <div class="company">STEDIS, TOTAL</div>
+        <div class="company">STEDIS (TotalEnergies)</div>
         <ul>
-          <li>Deployed and configured a connected object management tool leveraging Microsoft Azure</li>
-          <li>Automated data acquisition pipelines, successfully decoding and storing IoT telemetry using JavaScript and Azure Functions</li>
+          <li>Deployed an Azure-based connected-device management platform and automated IoT telemetry decoding and storage with JavaScript and Azure Functions</li>
         </ul>
       </div>
 
       <div class="exp-card">
         <div class="exp-head">
           <h3>Academic Projects</h3>
-          <span class="dates">Sep 2020 — Jun 2021</span>
+          <span class="dates">2020 — 2022</span>
         </div>
-        <div class="company">Eurecom</div>
+        <div class="company">EURECOM</div>
         <ul>
-          <li>Network Security: co-developed a programmable proxy to mitigate botnet-driven web server attacks</li>
-          <li>Drone Reverse-Engineering: reverse-engineered radio signals and executed RF-targeted attacks on commercial drones</li>
+          <li>Drone RF security: reverse-engineered radio signals and carried out RF attacks against commercial drones in a controlled academic setting</li>
+          <li>Android security: solved 20 Android security challenges</li>
+          <li>Botnet mitigation proxy: co-developed a programmable proxy to mitigate botnet-driven attacks on web servers</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-head">
+          <h3>CTF &amp; Personal Training</h3>
+          <span class="dates">Ongoing</span>
+        </div>
+        <div class="company">Competitions &amp; practice</div>
+        <ul>
+          <li>CTF competitions: Ph0wn (hardware and IoT CTF), GreHack, leHACK</li>
+          <li>Hack The Box: completed challenges and machines (personal practice)</li>
         </ul>
       </div>
     </div>
@@ -408,46 +426,71 @@
 
     <div class="skills-grid">
       <div class="skill-card">
-        <h3>Protocols</h3>
+        <h3>Offensive Testing</h3>
         <ul>
-          <li>CAN, SPI, I2C, UART, LIN</li>
-          <li>Automotive Ethernet</li>
-          <li>UDS</li>
+          <li>White-box &amp; network penetration testing</li>
+          <li>Vulnerability assessment &amp; exploitation</li>
+          <li>Firmware extraction &amp; analysis</li>
+          <li>C/C++ source code review</li>
+          <li>Fuzzing &amp; security-mechanism bypass</li>
+          <li>PoC development</li>
+          <li>AI-assisted test automation &amp; reporting</li>
+          <li>Retesting &amp; patch validation</li>
         </ul>
       </div>
       <div class="skill-card">
-        <h3>Hardware</h3>
+        <h3>Automotive Security</h3>
         <ul>
-          <li>FTDI</li>
-          <li>HydraBus</li>
+          <li>ECU penetration testing</li>
+          <li>UDS (SecurityAccess seed/key, diagnostic sessions)</li>
+          <li>CAN, LIN, Automotive Ethernet</li>
+          <li>Bluetooth Low Energy (BLE)</li>
+          <li>Phone-as-a-key systems</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Hardware Hacking</h3>
+        <ul>
+          <li>UART, JTAG, SWD, SPI, I2C</li>
+          <li>J-Link, FTDI, HydraBus</li>
           <li>Saleae Logic Analyzer</li>
-          <li>J-Link</li>
-          <li>Dediprog</li>
           <li>PCAN</li>
         </ul>
       </div>
       <div class="skill-card">
-        <h3>Offensive Tools</h3>
+        <h3>Adversary Emulation</h3>
         <ul>
-          <li>Wireshark</li>
-          <li>Metasploit</li>
-          <li>Ghidra</li>
-          <li>GDB</li>
-          <li>Radare2</li>
+          <li>APT scenario design</li>
+          <li>MITRE Caldera &amp; ATT&amp;CK mapping</li>
+          <li>Full kill-chain testing</li>
+          <li>Active Directory reconnaissance</li>
+          <li>Lateral movement &amp; IT-to-OT pivoting</li>
+          <li>IDS detection validation</li>
         </ul>
       </div>
       <div class="skill-card">
-        <h3>Automotive Software</h3>
+        <h3>ICS/OT Security</h3>
         <ul>
-          <li>Vector CANoe</li>
-          <li>CANalyzer</li>
+          <li>Modbus</li>
+          <li>S7comm</li>
+          <li>OPC UA</li>
         </ul>
       </div>
       <div class="skill-card">
-        <h3>Dev &amp; OS</h3>
+        <h3>Reverse Engineering &amp; Tooling</h3>
+        <ul>
+          <li>Ghidra, Radare2, GDB</li>
+          <li>Wireshark, Nmap</li>
+          <li>Metasploit, Burp Suite</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Programming &amp; Platforms</h3>
         <ul>
           <li>Python, Bash</li>
-          <li>Linux (Ubuntu), macOS, Windows</li>
+          <li>C/C++ (code review)</li>
+          <li>Docker</li>
+          <li>Linux, Windows</li>
         </ul>
       </div>
       <div class="skill-card">
@@ -455,8 +498,8 @@
         <ul>
           <li>French (Native)</li>
           <li>Arabic (Native)</li>
-          <li>English (TOEFL 85)</li>
-          <li>German (Basics)</li>
+          <li>English (C1)</li>
+          <li>German (A2)</li>
         </ul>
       </div>
     </div>
@@ -468,20 +511,20 @@
     <h2>Education</h2>
     <div class="edu-list">
       <div class="edu-item">
-        <span class="degree">Post-Master Degree in Cybersecurity — Eurecom, Sophia Antipolis</span>
+        <span class="degree">Double Degree — IMT Mines Albi &amp; EURECOM</span>
+        <span class="years">2018 – 2022</span>
+      </div>
+      <div class="edu-item">
+        <span class="degree">Diplôme d'Ingénieur (Master's-level Engineering Degree) — IMT Mines Albi</span>
+        <span class="years">2018 – 2022</span>
+      </div>
+      <div class="edu-item">
+        <span class="degree">Post-Master's Degree in Security of Communication and Information Systems — EURECOM, Sophia Antipolis</span>
         <span class="years">2020 – 2022</span>
       </div>
       <div class="edu-item">
-        <span class="degree">Generalist Engineer Master Degree — IMT Mines Albi, Albi</span>
-        <span class="years">2018 – 2020</span>
-      </div>
-      <div class="edu-item">
-        <span class="degree">CPGE PCSI/PSI — Lycée du Parc, Lyon</span>
+        <span class="degree">Classes Préparatoires (PCSI/PSI) — Lycée du Parc, Lyon</span>
         <span class="years">2015 – 2018</span>
-      </div>
-      <div class="edu-item">
-        <span class="degree">Top 40 National Ranking, Baccalaureate (Full Merit Scholarship)</span>
-        <span class="years">Jul 2015</span>
       </div>
     </div>
   </div>
