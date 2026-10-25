@@ -12,5 +12,12 @@
     "date": "2026-07-13",
     "excerpt": "How PTES, OSSTMM, OWASP FSTM, and MITRE ATT&CK/EMB3D map onto real embedded and automotive engagements, from debug interface mapping to UDS security access testing.",
     "published": false
+  },
+  {
+    "slug": "ble-fundamentals-for-pentesters",
+    "title": "Bluetooth Low Energy Fundamentals, Through a Pentester's Eyes",
+    "date": "2026-10-25",
+    "excerpt": "A layer-by-layer tour of BLE (advertising, addresses, connections, GATT, pairing and sniffing) with what to look for at each step during a security assessment.",
+    "published": false
   }
 ]
