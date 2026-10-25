@@ -18,6 +18,6 @@
     "title": "Bluetooth Low Energy Fundamentals, Through a Pentester's Eyes",
     "date": "2026-10-25",
     "excerpt": "A layer-by-layer tour of BLE (advertising, addresses, connections, GATT, pairing and sniffing) with what to look for at each step during a security assessment.",
-    "published": false
+    "published": true
   }
 ]
