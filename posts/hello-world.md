@@ -1,13 +1,11 @@
 # Welcome
 
-This is the first post on this blog. I'll be sharing write-ups and notes from
-embedded and automotive security work — debug interface bring-up, UDS
-diagnostics, firmware extraction, CAN bus analysis, and the occasional CTF.
+I'll be sharing blog posts from embedded, automotive and industrial security work. 
+I'll will progressively add pentest methodology and standards write-ups, tools and protocols, fuzzing embedded ..
+Some posts may be about the latest major security incidents.
 
-## What to expect
-
-- Practical walkthroughs (JTAG/SWD bring-up, flash extraction, UDS enumeration)
-- Notes on tools and workflows
-- Lessons learned from real engagements, generalized and sanitized
+## Not excluded 
+- AI and embedded security
+- AI and fuzzing
 
 More posts coming soon.
